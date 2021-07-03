@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+    <style>
+    .container {
+          width: 100%;
+          max-width: 768px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      th,
+      td,
+      table {
+        border: 1px solid #ddd;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="display: flex;justify-content: space-between;align-items: center;">
+      <h2>Products </h2>
+      <a href="{% url 'product_form' %}">Add new</a>
+    </div>
+    <table class="container">
+      <thead>
+        <tr>
+          <th width="50%">Name</th>
+          <th>Status</th>
+          <th>Active</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for obj in object_list %}
+      <tr>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.status }}</td>
+        <td>{{obj.is_active }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
