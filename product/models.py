@@ -18,8 +18,8 @@ class Product(models.Model):
         (PENDING, 'Pending'),
         (REJECTED, 'Rejected'),
     )
-
-    name = models.CharField(max_length=250)
+    # fields
+    name = models.CharField(max_length=250, help_text='Name max length 250, as helper text')
     description = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=50, choices=STATUS, default=PENDING)
     is_active = models.BooleanField(default=True)

@@ -12,6 +12,7 @@ def product_form(request):
     ctx = {
         'form': form
     }
+    print('Form Name Field: ', dir(form['name']))
     return render(request, 'product/product_form.html', ctx)
 
 
