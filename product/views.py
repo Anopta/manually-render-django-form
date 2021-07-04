@@ -4,15 +4,15 @@ from .forms import ProductForm
 # Create your views here.
 
 def product_form(request):
-    form = ProductForm(request.POST or None)
+    data = {'name': 'jyan'}
+    form = ProductForm(request.POST or None, initial=data)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
-            return redirect(reverse('product_list'))
+            # save data as you want
+            pass
     ctx = {
         'form': form
     }
-    print('Form Name Field: ', dir(form['name']))
     return render(request, 'product/product_form.html', ctx)
 
 

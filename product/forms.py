@@ -1,10 +1,13 @@
 from django import forms
 
-from .models import Product
+class ProductForm(forms.Form):
+    STATUS = (
+        ('published', "Published"),
+        ('pending', 'Pending'),
+        ('rejected', 'Rejected'),
+    )
+    name = forms.CharField(max_length=250, label='Product Name')
+    description = forms.CharField(widget=forms.Textarea())
+    status = forms.ChoiceField(choices=STATUS)
+    is_active = forms.BooleanField()
 
-
-class ProductForm(forms.ModelForm):
-
-    class Meta:
-        model = Product
-        fields = ('name', 'description', 'status', 'is_active')
