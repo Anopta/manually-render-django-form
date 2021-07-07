@@ -4,8 +4,7 @@ from .forms import ProductForm
 # Create your views here.
 
 def product_form(request):
-    data = {'name': 'jyan'}
-    form = ProductForm(request.POST or None, initial=data)
+    form = ProductForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             # save data as you want
